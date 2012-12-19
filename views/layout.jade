@@ -1,0 +1,26 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css', media='screen')
+  body(style='padding-top: 60px')
+      div(class='navbar navbar-inverse navbar-fixed-top')
+        div(class='navbar-inner')
+          div(class='container')
+            a(class='btn btn-navbar', data-toggle='collapse', data-target='.nav-collapse')
+              span(class='icon-bar')
+              span(class='icon-bar')
+              span(class='icon-bar')
+            a(class='brand', href='#') Project name
+            div(class='nav-collapse collapse')
+               ul(class='nav')
+                 li(class='active')
+                   a(href='#') Home
+                 li
+                   a(href='#about') About
+                 li
+                   a(href='#contact') Contact
+      div(class='container')
+        block content
+
+    script(type='text/javascript', src='/js/bootstrap.min.js')
