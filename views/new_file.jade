@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form(id='file_upload_form', method='post', action='/files', enctype='multipart/form-data')
+    div(class='fileupload fileupload-new', data-provides='fileupload')
+      div(class='input-append')
+        div(class='uneditable-input span3')
+          i(class='icon-file fileupload-exists')
+          span(class='fileupload-preview')
+        span(class='btn btn-file')
+          span(class='fileupload-new') Select file
+          span(class='fileupload-exists') Change
+          input(type='file', id='uploaded_file', name='uploaded_file')
+        a(href='#', class='btn fileupload-exists', data-dismiss='fileupload') Remove
+        a(id='upload_file_button', href='#', class='btn fileupload-exists') Upload
