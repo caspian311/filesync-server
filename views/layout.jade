@@ -1,9 +1,11 @@
 !!! 5
 html(lang="en")
+
   head
     title= title
     link(rel='stylesheet', href='/assets/css/bootstrap.css', media='screen')
     link(rel='stylesheet', href='/assets/css/bootstrap-responsive.css', media='screen')
+
   body(data-spy='scroll', data-target='.bs-docs-sidebar', data-twttr-rendered='true', style='padding-top: 60px')
       div(class='navbar navbar-inverse navbar-fixed-top')
         div(class='navbar-inner')
@@ -12,15 +14,17 @@ html(lang="en")
               span(class='icon-bar')
               span(class='icon-bar')
               span(class='icon-bar')
-            a(class='brand', href='#') Project name
+            a(class='brand', href='/') Filesync
             div(class='nav-collapse collapse')
                ul(class='nav')
                  li(class='active')
                    a(href='/') Home
                  li
                    a(href='/files') Files
+
       div(class='container')
         block content
+
       script(type='text/javascript', src='http://code.jquery.com/jquery-1.8.3.min.js')
       //script(type='text/javascript', src='/assets/js/bootstrap.js')
       script(type='text/javascript', src='/assets/js/bootstrap-fileupload.js')

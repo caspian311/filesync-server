@@ -2,7 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Here are all the files you have uploaded
+  p
+    | Here are all the files you have uploaded
 
   a(href='/files/create', class='btn btn-primary') Upload new file
   &nbsp;&nbsp;
@@ -15,11 +16,15 @@ block content
     thead
       tr
         th Filename
+        th Last modified
         th
     tbody
       each file in files
         tr
           td= file
+          td
+            | TBD
           td(style='text-align: center')
             a(id=file, class='btn btn-danger delete-file')
               i(class='icon-remove icon-white')
+              | Remove
