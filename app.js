@@ -27,6 +27,7 @@ app.get('/', routes.index)
 app.get('/files', files.list)
 app.get('/files/create', files.create)
 app.post('/files', files.upload)
+app.delete('/files/:file_to_delete', files.delete_file)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'))

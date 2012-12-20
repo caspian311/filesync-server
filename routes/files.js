@@ -1,7 +1,10 @@
-var fs = require('fs')
+var fs = require('fs'),
+    util = require('util')
 
 exports.list = function(req, res) {
-   res.render("files", {title: "Uploaded Files"})
+   fs.readdir("/tmp/uploads", function(err, files) {
+      res.render("files", {title: "Uploaded Files", files: files})
+   })
 }
 
 exports.upload = function(req, res) {
@@ -14,11 +17,21 @@ exports.upload = function(req, res) {
          if (err)
             throw err
 
-         res.send(200, { messgae: "upload successful" })
+         res.redirect("/files")
       })
    })
 }
 
 exports.create = function(req, res) {
    res.render("new_file", {title: "New file to upload"})
+}
+
+exports.delete_file = function(req, res) {
+   fs.unlink("/tmp/uploads/" + req.params.file_to_delete, function(err) {
+      if (err) {
+         throw err
+      }
+
+      res.send(200, {message: "success"})
+   })
 }
