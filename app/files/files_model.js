@@ -5,7 +5,7 @@
    var FILES_DIRECTORY = "/tmp/uploads/"
 
    var FileModel = function(files_directory) {
-      if (files_directory == undefined) {
+      if (!files_directory) {
          files_directory = FILES_DIRECTORY
       }
 

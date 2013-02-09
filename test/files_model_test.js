@@ -31,5 +31,43 @@
             })
          })
       })
+
+      describe('#upload', function(done) {
+         it('should add a file to the given directory', function(done) {
+            fs.writeFile(test_directory + '/1', '')
+            fs.writeFile(test_directory + '/2', '')
+            fs.writeFile(test_directory + '/3', '')
+
+            var new_file = {
+               filename: '',
+               path: ''
+            }
+            test_object.uplaod(new_file, function() {
+               fs.readdir(test_directory, function(err, files) {
+                  assert.strictEqual(2, files.length)
+                  assert.include(files, '1')
+                  assert.include(files, '3')
+                  done()
+               })
+            })
+         })
+      })
+
+      describe('#delete_file', function(done) {
+         it('should delete the given file', function(done) {
+            fs.writeFile(test_directory + '/1', '')
+            fs.writeFile(test_directory + '/2', '')
+            fs.writeFile(test_directory + '/3', '')
+
+            test_object.delete_file('/2', function() {
+               fs.readdir(test_directory, function(err, files) {
+                  assert.strictEqual(2, files.length)
+                  assert.include(files, '1')
+                  assert.include(files, '3')
+                  done()
+               })
+            })
+         })
+      })
    })
 })()
