@@ -1,7 +1,7 @@
 (function() {
    var express = require('express')
    var app = express()
-   var controller = require('./controller')
+   var controller = require('./controller')()
 
    app.locals.pretty = true
    app.set('views', __dirname)
