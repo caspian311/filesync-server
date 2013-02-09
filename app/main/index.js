@@ -1,12 +1,11 @@
 (function() {
    var app = require('express')()
+   var controller = require('./main_controller')()
 
    app.locals.pretty = true
    app.set('views', __dirname)
 
-   app.get('/', function(req, res){
-     res.render('index', { title: 'Filesync' })
-   })
+   app.get('/', controller.index)
 
    module.exports = app
 })()
