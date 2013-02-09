@@ -10,7 +10,7 @@
       }
 
       var _get_all_files = function(callback) {
-         fs.readdir(FILES_DIRECTORY, function(err, files) {
+         fs.readdir(files_directory, function(err, files) {
             if (err)
                throw err
 
@@ -26,7 +26,7 @@
             if (err)
                throw err
 
-            var newPath = FILES_DIRECTORY + uploaded_file.filename
+            var newPath = files_directory + uploaded_file.filename
             fs.writeFile(newPath, data, function(err) {
                if (err)
                   throw err
@@ -37,7 +37,7 @@
       }
 
       var _delete_file = function(file_to_delete, callback) {
-         fs.unlink(FILES_DIRECTORY + file_to_delete, function(err) {
+         fs.unlink(files_directory + file_to_delete, function(err) {
             if (err) {
                throw err
             }
