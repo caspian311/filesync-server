@@ -12,10 +12,12 @@
          this.browser.visit(url.for_page(page_name), callback)
       }
 
-      this.find_text = function(text, callback) {
+      this.find_text = function() {
          var entire_text = this.browser.text('body')
-         assert.include(entire_text, text)
-         callback()
+         for (var i=0; i<arguments.length-1; i++) {
+            assert.include(entire_text, arguments[i])
+         }
+         arguments[arguments.length-1]()
       }
 
       callback()
