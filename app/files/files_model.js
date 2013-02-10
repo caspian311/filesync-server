@@ -2,9 +2,9 @@
    var fs = require('fs'),
        util = require('util')
 
-   var FILES_DIRECTORY = "/tmp/uploads/"
 
    var FileModel = function(files_directory) {
+      var FILES_DIRECTORY = "/tmp/uploads/"
       if (!files_directory) {
          files_directory = FILES_DIRECTORY
       }
