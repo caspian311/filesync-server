@@ -1,0 +1,11 @@
+extends ../../layout/layout
+
+block content
+  - if (errors.length)
+    div(class='alert alert-error') Error: Bad login
+  form(id='login_form', method='post', action='/login', class='form-signin')
+    h2(class='form-signin-heading') Please sign in
+    input(id='username', name='username', type='text', placeholder='Username')
+    input(id='password', name='password', type='password', placeholder='Password')
+    br
+    button(id='login_button', value='Login', type='submit', class='btn btn-large btn-primary') Login

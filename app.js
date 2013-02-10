@@ -4,6 +4,7 @@
      , path = require('path')
      , files = require('./app/files')
      , main = require('./app/main')
+     , login = require('./app/login')
 
    var app = express()
 
@@ -15,6 +16,7 @@
 
    app.use(main)
    app.use(files)
+   app.use(login)
 
    http.createServer(app).listen(3000, function(){
      console.log("Express server listening on port 3000")
