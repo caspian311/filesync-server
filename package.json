@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "express": "3.0.4",
-    "jade": "*"
+    "jade": "0.27.7",
+    "passport": "0.1.15",
+    "passport-local": "0.1.6"
   }
 }
