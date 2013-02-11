@@ -1,38 +1,20 @@
 (function() {
    var passport = require('passport')
-   var LocalStrategy = require('passport-local').Strategy
+   var passport_local = require('passport-local')
    var app = require('express')()
+
+   var authenticate_request = require('./authenticate_request')
+   var login_validation = require('./login_validation')
+   var user_serialization = require('./user_serialization')()
 
    app.use(passport.initialize())
    app.use(passport.session())
 
-   passport.serializeUser(function(user, done) {
-      done(null, user.id)
-   })
-   passport.deserializeUser(function(id, done) {
-      done(null, { id: id, name: 'Matt Todd' })
-   })
+   passport.serializeUser(user_serialization.serialize)
+   passport.deserializeUser(user_serialization.deserialize)
 
-   passport.use(new LocalStrategy(function(username, password, done) {
-      console.log('********************')
-      console.log('authenticating...')
-      if (username === 'user123' && password === 'password') {
-         console.log(' - good credentials')
-         done(null, {id: 123})
-      } else {
-         console.log(' - failed login')
-
-         done({ message: 'Unauthenticated user' })
-      }
-   }))
-
-   app.use(function(req, res, next) {
-      if (req.user || req.path == '/login') {
-         next()
-      } else {
-         res.redirect('/login')
-      }
-   })
+   passport.use(new passport_local.Strategy(login_validation))
+   app.use(authenticate_request)
 
    module.exports = app
 })()
