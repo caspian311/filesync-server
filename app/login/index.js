@@ -7,8 +7,7 @@
    var controller = require('./login_controller')()
 
    app.get('/login', controller.form)
-   app.post('/login',
-      passport.authenticate('local', {
+   app.post('/login', passport.authenticate('local', {
          failureRedirect: '/login',
          successRedirect: '/'
       }))
