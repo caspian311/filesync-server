@@ -2,8 +2,14 @@
    var main_steps = function() {
       this.World = require('../support/world').World
 
-      this.Given(/^I am a user$/, function(callback) {
-         callback()
+      this.Given(/^I am a logged in user$/, function(callback) {
+         this.visit("login", function(e, browser) {
+            browser.fill('#username', 'user123')
+            browser.fill('#password', 'password')
+            browser.pressButton('#login_button', function() {
+               callback()
+            })
+         })
       })
 
       this.When(/^I go to the (.*) page$/, function(page_name, callback) {
