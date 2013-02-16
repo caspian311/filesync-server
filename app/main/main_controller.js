@@ -1,7 +1,7 @@
 (function() {
    var MainController = function() {
       var _index = function(req, res){
-        res.render('index', { title: 'Filesync' })
+        res.render('index', { title: 'Filesync', user: req.user })
       }
 
       return {
