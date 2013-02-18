@@ -8,6 +8,7 @@
      , main = require('./app/main')
      , login = require('./app/login')
      , authentication = require('./app/authentication')
+     , db = require('./app/db')
 
    var app = express()
 
@@ -19,6 +20,8 @@
    app.use(express.methodOverride())
    app.use(express.cookieParser())
    app.use(express.session({ secret: 'keyboard cat' }))
+
+   app.use(db)
 
    app.use(authentication)
 
