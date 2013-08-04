@@ -1,14 +1,7 @@
 (function() {
-   var fs = require('fs'),
-       util = require('util')
+   var db = require('../db')
 
-
-   var FileModel = function(files_directory) {
-      var FILES_DIRECTORY = "/tmp/uploads/"
-      if (!files_directory) {
-         files_directory = FILES_DIRECTORY
-      }
-
+   var FileModel = function() {
       var _get_all_files = function(callback) {
          fs.readdir(files_directory, function(err, files) {
             if (err)

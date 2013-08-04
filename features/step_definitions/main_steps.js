@@ -6,9 +6,7 @@
          this.visit("login", function(e, browser) {
             browser.fill('#username', 'user123')
             browser.fill('#password', 'password')
-            browser.pressButton('#login_button', function() {
-               callback()
-            })
+            browser.pressButton('#login_button', callback)
          })
       })
 
